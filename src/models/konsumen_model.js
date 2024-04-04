@@ -3,7 +3,7 @@ const {
     model
 } = require('mongoose');
 
-const Restoran = Schema(
+const Konsumen = Schema(
     {
         email: {
             type: String,
@@ -28,4 +28,4 @@ const Restoran = Schema(
     }
 );
 
-module.exports = model('Restoran', Restoran);
+module.exports = model('Konsumen', Konsumen);
