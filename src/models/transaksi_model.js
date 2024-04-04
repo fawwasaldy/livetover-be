@@ -3,7 +3,7 @@ const {
     model
 } = require('mongoose');
 
-const transaksi = Schema(
+const Transaksi = Schema(
     {
         isValid: {
             type: Number,
@@ -26,4 +26,4 @@ const transaksi = Schema(
     }
 );
 
-module.exports = model('transaksi', transaksi);
+module.exports = model('Transaksi', Transaksi);
