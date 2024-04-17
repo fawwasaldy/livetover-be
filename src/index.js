@@ -24,6 +24,9 @@ app.get('/', (req, res) => {
 });
 app.use(express.json());
 
+const konsumenRoute = require('./routes/konsumen_route');
+app.use('/konsumen', konsumenRoute);
+
 app.listen(port, () => {
   console.log(`Server is running on port http://localhost:${port}`);
 });
