@@ -30,6 +30,6 @@ app.use('/konsumen', konsumenRoute);
 const restoranRoute = require('./routes/restoran_route');
 app.use('/restoran', restoranRoute);
 
-app.listen(port, () => {
-  console.log(`Server is running on port http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server is running on port ${port}`);
 });
