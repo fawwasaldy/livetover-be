@@ -13,7 +13,8 @@ const verifyToken = (req, res, next) => {
         next();
     } catch (e) {
         return res.status(400).json({
-            message: 'Token tidak valid'
+            message: 'Token tidak valid',
+            error: e.message
         });
     }
 }

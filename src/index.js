@@ -27,6 +27,9 @@ app.use(express.json());
 const konsumenRoute = require('./routes/konsumen_route');
 app.use('/konsumen', konsumenRoute);
 
+const restoranRoute = require('./routes/restoran_route');
+app.use('/restoran', restoranRoute);
+
 app.listen(port, () => {
   console.log(`Server is running on port http://localhost:${port}`);
 });
