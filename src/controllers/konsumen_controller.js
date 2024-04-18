@@ -47,7 +47,7 @@ const login = async (req, res) => {
 };
 
 const me = async (req, res) => {
-    return res.status(200).json(req.konsumen);
+    return res.status(200).json(req.user);
 };
 
 module.exports = {

@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const verifyTokenKonsumen = (req, res, next) => {
+const verifyToken = (req, res, next) => {
     const token = req.headers['authorization']?.split(' ')[1];
     if (!token) {
         return res.status(401).json({
@@ -8,8 +8,8 @@ const verifyTokenKonsumen = (req, res, next) => {
         });
     }
     try {
-        const veriviedKonsumen = jwt.verify(token, process.env.JWT_SECRET);
-        req.konsumen = veriviedKonsumen;
+        const veriviedUser = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = veriviedUser;
         next();
     } catch (e) {
         return res.status(400).json({
@@ -18,4 +18,4 @@ const verifyTokenKonsumen = (req, res, next) => {
     }
 }
 
-module.exports = verifyTokenKonsumen;
+module.exports = verifyToken;

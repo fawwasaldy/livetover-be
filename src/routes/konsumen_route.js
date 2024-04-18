@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const verifyTokenKonsumen = require('../middlewares/verifyTokenKonsumen');
+const verifyToken = require('../middlewares/verifyToken');
 
 const {
     register,
@@ -10,6 +10,6 @@ const {
 
 router.post('/register', register);
 router.post('/login', login);
-router.get('/me', verifyTokenKonsumen, me);
+router.get('/me', verifyToken, me);
 
 module.exports = router;
