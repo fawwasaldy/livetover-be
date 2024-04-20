@@ -17,19 +17,19 @@ database.once('connected', () => {
 
 const app = express();
 
-const port = 8000;
+const port = process.env.PORT || 8080;
 
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
 app.use(express.json());
 
-const konsumenRoute = require('./routes/konsumen_route');
+const konsumenRoute = require('./src/routes/konsumen_route');
 app.use('/konsumen', konsumenRoute);
 
-const restoranRoute = require('./routes/restoran_route');
+const restoranRoute = require('./src/routes/restoran_route');
 app.use('/restoran', restoranRoute);
 
-app.listen(port, '0.0.0.0', () => {
+app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
