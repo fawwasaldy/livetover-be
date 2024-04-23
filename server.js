@@ -30,6 +30,9 @@ app.use('/konsumen', konsumenRoute);
 const restoranRoute = require('./src/routes/restoran_route');
 app.use('/restoran', restoranRoute);
 
+const produkRoute = require('./src/routes/produk_route');
+app.use('/produk', produkRoute);
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
