@@ -55,7 +55,18 @@ const updateProduk = async (req, res) => {
     }
 }
 
+const searchProduk = async (req, res) => {
+    try {
+        const nama = req.body.nama;
+        const foundProduk = await produkService.searchProduk(nama);
+        res.status(200).json(foundProduk);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
 module.exports = {
     createProduk,
-    updateProduk
+    updateProduk,
+    searchProduk
 }

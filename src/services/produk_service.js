@@ -35,6 +35,20 @@ const updateProduk = async (nama, deskripsi, harga, bestBefore, kuantitas, isVal
     }
 }
 
+const searchProduk = async (nama) => {
+    try {
+        const foundProduk = await Produk.find({ nama: { $regex: new RegExp(nama, 'i') } });
+        if (foundProduk.length > 0) {
+            return foundProduk;
+        } else {
+            throw new Error("Produk tidak ditemukan");
+        }
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+}
+
 // const updateProduk = async (nama, deskripsi, harga, bestBefore, kuantitas, isValid, restoranId) => {
 //     try {
 //         const updatedProduk = await Produk.findOneAndUpdate({ nama: nama }, {
@@ -47,5 +61,6 @@ const updateProduk = async (nama, deskripsi, harga, bestBefore, kuantitas, isVal
 
 module.exports = {
     createProduk,
-    updateProduk
+    updateProduk,
+    searchProduk
 }
